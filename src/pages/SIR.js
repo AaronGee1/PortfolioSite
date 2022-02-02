@@ -10,17 +10,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
 let labels = ["Janurary", "Feb"];
 let options = {
   options: {
@@ -59,9 +48,45 @@ let data = {
     },
   ],
 };
+class SIR extends React.Component {
+  constructor() {
+    super();
 
-const SIR = () => {
-  return <Line options={options} data={data} />;
-};
+    this.state = {
+      totalPopulation: 100,
+      infectiousPopulation: 5,
+      susceptiblePopulation: totalPopulation - infectiousPopulation,
+      recoveredPopulation: 0,
+      day: 0,
+      beta: 0.5,
+      betaHistory: [beta],
+      gamma: 0.5,
+      gammaHistory: [gamma],
+      rnot: beta / gamma,
+      dsdt:
+        (beta * infectiousPopulation * susceptiblePopulation) / totalPopulation,
+      didt:
+        (beta * infectiousPopulation * susceptiblePopulation) /
+          totalPopulation -
+        gamma * infectiousPopulation,
+    };
+  }
+
+  componentDidMount = () => {
+    ChartJS.register(
+      CategoryScale,
+      LinearScale,
+      PointElement,
+      LineElement,
+      Title,
+      Tooltip,
+      Legend
+    );
+  };
+
+  render() {
+    return <Line options={options} data={data} />;
+  }
+}
 
 export default SIR;
