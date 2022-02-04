@@ -51,7 +51,8 @@ class SIR extends React.Component {
     });
 
     await this.setState({
-      didt: -this.state.dsdt - this.gamma * this.infectiousPopulation,
+      didt:
+        -this.state.dsdt - this.state.gamma * this.state.infectiousPopulation,
       drdt: this.state.gamma * this.state.infectiousPopulation,
       dayData: [this.state.day],
       susceptibleData: [this.state.susceptiblePopulation],
@@ -77,35 +78,39 @@ class SIR extends React.Component {
   forwardStep = async () => {
     await this.setState({
       susceptiblePopulation: this.state.susceptiblePopulation + this.state.dsdt,
-      infectiousPopulation: this.state.infectiousPopulation, // + this.state.didt,
+      infectiousPopulation: this.state.infectiousPopulation + this.state.didt,
       recoveredPopulation: this.state.recoveredPopulation + this.state.drdt,
       day: this.state.day + 1,
     });
 
-    this.setState({
-      susceptibleData: [
-        ...this.state.susceptibleData,
-        this.state.susceptiblePopulation,
-      ],
-      infectedData: [
-        ...this.state.infectedData,
-        this.state.infectiousPopulation,
-      ],
-      recoveredData: [
-        ...this.state.recoveredData,
-        this.state.recoveredPopulation,
-      ],
-      dayData: [...this.state.dayData, this.state.day],
-    });
+    if (this.state.infectiousPopulation > 0.01) {
+      await this.setState({
+        susceptibleData: [
+          ...this.state.susceptibleData,
+          this.state.susceptiblePopulation,
+        ],
+        infectedData: [
+          ...this.state.infectedData,
+          this.state.infectiousPopulation,
+        ],
+        recoveredData: [
+          ...this.state.recoveredData,
+          this.state.recoveredPopulation,
+        ],
+        dayData: [...this.state.dayData, this.state.day],
+      });
+    } else {
+      console.log("Infection Population is 0");
+    }
   };
 
   render() {
-    console.log("=============");
-    console.log(this.state.day);
-    console.log(this.state.dayData);
-    console.log(this.state.susceptibleData);
-    console.log(this.state.infectedData);
-    console.log(this.state.recoveredData);
+    console.log("===========");
+    console.log(this.state.susceptiblePopulation);
+    console.log(this.state.infectiousPopulation);
+    console.log(this.state.recoveredPopulation);
+    console.log("===========");
+
     let options = {
       options: {
         responsive: true,
