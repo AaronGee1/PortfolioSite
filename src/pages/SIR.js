@@ -22,7 +22,7 @@ class SIR extends React.Component {
       susceptiblePopulation: 0,
       recoveredPopulation: 0,
       day: 0,
-      beta: 0.5,
+      beta: 0.8,
       gamma: 0.5,
       rnot: 0,
       dsdt: 0,
