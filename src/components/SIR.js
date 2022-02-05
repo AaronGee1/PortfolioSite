@@ -77,6 +77,20 @@ class SIR extends React.Component {
 
   forwardStep = async () => {
     await this.setState({
+      dsdt:
+        (-this.state.beta *
+          this.state.infectiousPopulation *
+          this.state.susceptiblePopulation) /
+        this.state.totalPopulation,
+    });
+
+    await this.setState({
+      didt:
+        -this.state.dsdt - this.state.gamma * this.state.infectiousPopulation,
+      drdt: this.state.gamma * this.state.infectiousPopulation,
+    });
+
+    await this.setState({
       susceptiblePopulation: this.state.susceptiblePopulation + this.state.dsdt,
       infectiousPopulation: this.state.infectiousPopulation + this.state.didt,
       recoveredPopulation: this.state.recoveredPopulation + this.state.drdt,

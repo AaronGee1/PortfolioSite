@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import NavMenu from "./components/NavMenu.js";
 import Home from "./pages/Home.js";
-import SIR from "./pages/SIR";
+import SIRpage from "./pages/SIRpage";
 import Education from "./components/Education";
 
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
     <NavMenu />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/education" element={<SIR />} />
+      <Route path="/education" element={<SIRpage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
