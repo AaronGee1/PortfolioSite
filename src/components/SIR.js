@@ -46,12 +46,14 @@ class SIR extends React.Component {
       populationTextBox: null,
       infectedTextBox: null,
       simStarted: false,
+      isPaused: true,
     };
   }
 
   initializeChart = async () => {
     await this.setState({
       simStarted: false,
+      isPaused: true,
       totalPopulation: this.state.populationTextBox,
       infectiousPopulation: this.state.infectedTextBox,
       susceptiblePopulation: 0,
@@ -156,6 +158,7 @@ class SIR extends React.Component {
       });
     } else {
       console.log("Infection Population is 0");
+      this.state.isPaused = true;
     }
   };
 
@@ -192,6 +195,18 @@ class SIR extends React.Component {
   setInfected = async (population) => {
     await this.setState({ infectedTextBox: population });
     this.initializeChart();
+  };
+
+  startSim = () => {
+    setTimeout(() => {
+      this.forwardStep();
+      if (
+        this.state.infectiousPopulation > 0.01 &&
+        this.state.isPaused === false
+      ) {
+        this.startSim();
+      }
+    }, 100);
   };
 
   render() {
@@ -243,8 +258,21 @@ class SIR extends React.Component {
               <Line datasetIdKey="id" data={data} options={options} />
             </Col>
             <Col>
-              <Button>Play</Button>
-              <Button>Pause</Button>
+              <Button
+                onClick={async () => {
+                  await this.setState({ isPaused: false });
+                  this.startSim();
+                }}
+              >
+                Play
+              </Button>
+              <Button
+                onClick={() => {
+                  this.setState({ isPaused: true });
+                }}
+              >
+                Pause
+              </Button>
               <Button onClick={this.backStep}>Step Back</Button>
               <Button onClick={this.forwardStep}>Step Forward</Button>
               <Button onClick={this.initializeChart}>Reset</Button>
