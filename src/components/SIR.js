@@ -26,8 +26,8 @@ class SIR extends React.Component {
     super();
 
     this.state = {
-      totalPopulation: 100,
-      infectiousPopulation: 5,
+      totalPopulation: null,
+      infectiousPopulation: null,
       susceptiblePopulation: 0,
       recoveredPopulation: 0,
       day: 0,
@@ -41,8 +41,8 @@ class SIR extends React.Component {
       susceptibleData: [],
       infectedData: [],
       recoveredData: [],
-      populationTextBox: 100,
-      infectedTextBox: 5,
+      populationTextBox: null,
+      infectedTextBox: null,
       betaSlider: 0.8,
       gammaSlider: 0.5,
     };
@@ -50,8 +50,8 @@ class SIR extends React.Component {
 
   initializeChart = async () => {
     await this.setState({
-      totalPopulation: 100,
-      infectiousPopulation: 5,
+      totalPopulation: this.state.populationTextBox,
+      infectiousPopulation: this.state.infectedTextBox,
       susceptiblePopulation: 0,
       recoveredPopulation: 0,
       day: 0,
@@ -173,13 +173,25 @@ class SIR extends React.Component {
     });
   };
 
+  setPopulation = async (population) => {
+    await this.setState({ populationTextBox: population });
+    this.initializeChart();
+  };
+
+  setInfected = async (population) => {
+    await this.setState({ infectedTextBox: population });
+    this.initializeChart();
+  };
+
   render() {
     // console.log("===========");
     // console.log(this.state.susceptiblePopulation);
     // console.log(this.state.infectiousPopulation);
     // console.log(this.state.recoveredPopulation);
     // console.log("===========");
-
+    // console.log(this.state.populationData);
+    // console.log(this.state.infectedData);
+    console.log(this.state.totalPopulation);
     let options = {
       options: {
         responsive: true,
@@ -237,17 +249,25 @@ class SIR extends React.Component {
                 <FormGroup>
                   <Label for="populationTextBox">Population</Label>
                   <Input
+                    invalid={this.state.totalPopulation ? false : true}
                     id="populationTextBox"
                     placeholder="100"
                     type="number"
+                    onChange={(e) =>
+                      this.setPopulation(parseInt(e.target.value))
+                    }
                   ></Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="infectedTextBox">Infected</Label>
                   <Input
+                    invalid={this.state.infectiousPopulation ? false : true}
                     id="infectedTextBox"
                     placeholder="5"
                     type="number"
+                    onChange={(e) => {
+                      this.setInfected(parseInt(e.target.value));
+                    }}
                   ></Input>
                 </FormGroup>
                 <FormGroup>
