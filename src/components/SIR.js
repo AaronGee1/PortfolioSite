@@ -37,6 +37,17 @@ class SIR extends React.Component {
 
   initializeChart = async () => {
     await this.setState({
+      totalPopulation: 100,
+      infectiousPopulation: 5,
+      susceptiblePopulation: 0,
+      recoveredPopulation: 0,
+      day: 0,
+      beta: 0.8,
+      gamma: 0.5,
+      rnot: 0,
+    });
+
+    await this.setState({
       susceptiblePopulation:
         this.state.totalPopulation - this.state.infectiousPopulation,
       rnot: this.state.beta / this.state.gamma,
@@ -200,6 +211,7 @@ class SIR extends React.Component {
       <div>
         <Button onClick={this.backStep}>Step Back</Button>
         <Button onClick={this.forwardStep}>Step Forward</Button>
+        <Button onClick={this.initializeChart}>Reset</Button>
         <Line datasetIdKey="id" data={data} options={options} />
       </div>
     );
