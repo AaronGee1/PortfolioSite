@@ -174,11 +174,11 @@ class SIR extends React.Component {
   };
 
   render() {
-    console.log("===========");
-    console.log(this.state.susceptiblePopulation);
-    console.log(this.state.infectiousPopulation);
-    console.log(this.state.recoveredPopulation);
-    console.log("===========");
+    // console.log("===========");
+    // console.log(this.state.susceptiblePopulation);
+    // console.log(this.state.infectiousPopulation);
+    // console.log(this.state.recoveredPopulation);
+    // console.log("===========");
 
     let options = {
       options: {
@@ -252,14 +252,32 @@ class SIR extends React.Component {
                 </FormGroup>
                 <FormGroup>
                   <Label for="betaSlider">Beta</Label>
-                  <Input id="betaSlider" placeholder="0.8" type="range"></Input>
+                  <Input
+                    id="betaSlider"
+                    type="range"
+                    max="1"
+                    min="0.01"
+                    step="0.01"
+                    value={this.state.betaSlider}
+                    onChange={(e) => {
+                      console.log(this.state.betaSlider);
+                      this.setState({ betaSlider: e.target.value });
+                    }}
+                  ></Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="gammaSlider">Gamma</Label>
                   <Input
                     id="gammaSlider"
-                    placeholder="0.5"
                     type="range"
+                    max="1"
+                    min="0.01"
+                    step="0.01"
+                    value={this.state.gammaSlider}
+                    onChange={(e) => {
+                      console.log(this.state.gammaSlider);
+                      this.setState({ gammaSlider: e.target.value });
+                    }}
                   ></Input>
                 </FormGroup>
               </Form>
