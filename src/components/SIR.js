@@ -76,6 +76,18 @@ class SIR extends React.Component {
   };
 
   forwardStep = async () => {
+    let susceptibleArray = this.state.susceptibleData;
+    let infectedArray = this.state.infectedData;
+    let recoveredArray = this.state.recoveredData;
+    let dayArray = this.state.dayData;
+
+    await this.setState({
+      susceptiblePopulation: susceptibleArray.at(-1),
+      infectiousPopulation: infectedArray.at(-1),
+      recoveredPopulation: recoveredArray.at(-1),
+      day: dayArray.at(-1),
+    });
+
     await this.setState({
       dsdt:
         (-this.state.beta *
