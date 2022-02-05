@@ -13,7 +13,6 @@ const SIRpage = () => {
         description={"Epidemic modeling through interactive graphs"}
       />
       <SIR />
-      <SIR />
     </div>
   );
 };

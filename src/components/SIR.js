@@ -18,9 +18,16 @@ import {
   FormGroup,
   Input,
   Label,
+  ButtonGroup,
 } from "reactstrap";
 import { Line } from "react-chartjs-2";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+} from "@fortawesome/free-solid-svg-icons";
 class SIR extends React.Component {
   constructor() {
     super();
@@ -258,24 +265,36 @@ class SIR extends React.Component {
               <Line datasetIdKey="id" data={data} options={options} />
             </Col>
             <Col>
-              <Button
-                onClick={async () => {
-                  await this.setState({ isPaused: false });
-                  this.startSim();
-                }}
-              >
-                Play
-              </Button>
-              <Button
-                onClick={() => {
-                  this.setState({ isPaused: true });
-                }}
-              >
-                Pause
-              </Button>
-              <Button onClick={this.backStep}>Step Back</Button>
-              <Button onClick={this.forwardStep}>Step Forward</Button>
-              <Button onClick={this.initializeChart}>Reset</Button>
+              <Row>
+                <ButtonGroup>
+                  <Button
+                    color="success"
+                    onClick={async () => {
+                      await this.setState({ isPaused: false });
+                      this.startSim();
+                    }}
+                  >
+                    Play <FontAwesomeIcon className="ml" icon={faPlay} />
+                  </Button>
+                  <Button
+                    color="danger"
+                    onClick={() => {
+                      this.setState({ isPaused: true });
+                    }}
+                  >
+                    Pause <FontAwesomeIcon icon={faPause} />
+                  </Button>
+                  <Button onClick={this.initializeChart}>Reset</Button>
+                </ButtonGroup>
+                <ButtonGroup>
+                  <Button color="primary" onClick={this.backStep}>
+                    <FontAwesomeIcon icon={faAngleDoubleLeft} /> Step Back
+                  </Button>
+                  <Button color="primary" onClick={this.forwardStep}>
+                    Step Forward <FontAwesomeIcon icon={faAngleDoubleRight} />
+                  </Button>
+                </ButtonGroup>
+              </Row>
               <Form>
                 <FormGroup>
                   <Label for="populationTextBox">Population</Label>
