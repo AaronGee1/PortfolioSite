@@ -41,10 +41,10 @@ class SIR extends React.Component {
       susceptibleData: [],
       infectedData: [],
       recoveredData: [],
+      betaHistory: [],
+      gammaHistory: [],
       populationTextBox: null,
       infectedTextBox: null,
-      betaSlider: 0.8,
-      gammaSlider: 0.5,
       simStarted: false,
     };
   }
@@ -151,6 +151,8 @@ class SIR extends React.Component {
           this.state.recoveredPopulation,
         ],
         dayData: [...this.state.dayData, this.state.day],
+        betaHistory: [...this.state.betaHistory, this.state.beta],
+        gammaHistory: [...this.state.gammaHistory, this.state.gamma],
       });
     } else {
       console.log("Infection Population is 0");
@@ -162,17 +164,23 @@ class SIR extends React.Component {
     let infectedArray = this.state.infectedData;
     let recoveredArray = this.state.recoveredData;
     let dayArray = this.state.dayData;
+    let betaHistory = this.state.betaHistory;
+    let gammaHistory = this.state.gammaHistory;
 
     susceptibleArray.pop();
     infectedArray.pop();
     recoveredArray.pop();
     dayArray.pop();
+    betaHistory.pop();
+    gammaHistory.pop();
 
     this.setState({
       susceptibleData: susceptibleArray,
       infectedData: infectedArray,
       recoveredData: recoveredArray,
       dayData: dayArray,
+      beta: betaHistory.at(-1),
+      gamma: gammaHistory.at(-1),
     });
   };
 
@@ -187,14 +195,6 @@ class SIR extends React.Component {
   };
 
   render() {
-    // console.log("===========");
-    // console.log(this.state.susceptiblePopulation);
-    // console.log(this.state.infectiousPopulation);
-    // console.log(this.state.recoveredPopulation);
-    // console.log("===========");
-    // console.log(this.state.populationData);
-    // console.log(this.state.infectedData);
-    console.log(this.state.totalPopulation);
     let options = {
       options: {
         responsive: true,
@@ -283,10 +283,10 @@ class SIR extends React.Component {
                     max="1"
                     min="0.01"
                     step="0.01"
-                    value={this.state.betaSlider}
+                    value={this.state.beta}
                     onChange={(e) => {
-                      console.log(this.state.betaSlider);
-                      this.setState({ betaSlider: e.target.value });
+                      console.log(this.state.beta);
+                      this.setState({ beta: e.target.value });
                     }}
                   ></Input>
                 </FormGroup>
@@ -298,10 +298,10 @@ class SIR extends React.Component {
                     max="1"
                     min="0.01"
                     step="0.01"
-                    value={this.state.gammaSlider}
+                    value={this.state.gamma}
                     onChange={(e) => {
-                      console.log(this.state.gammaSlider);
-                      this.setState({ gammaSlider: e.target.value });
+                      console.log(this.state.gamma);
+                      this.setState({ gamma: e.target.value });
                     }}
                   ></Input>
                 </FormGroup>
