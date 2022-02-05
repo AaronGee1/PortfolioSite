@@ -9,7 +9,16 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Button } from "reactstrap";
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+} from "reactstrap";
 import { Line } from "react-chartjs-2";
 
 class SIR extends React.Component {
@@ -32,6 +41,10 @@ class SIR extends React.Component {
       susceptibleData: [],
       infectedData: [],
       recoveredData: [],
+      populationTextBox: 100,
+      infectedTextBox: 5,
+      betaSlider: 0.8,
+      gammaSlider: 0.5,
     };
   }
 
@@ -209,10 +222,50 @@ class SIR extends React.Component {
     };
     return (
       <div>
-        <Button onClick={this.backStep}>Step Back</Button>
-        <Button onClick={this.forwardStep}>Step Forward</Button>
-        <Button onClick={this.initializeChart}>Reset</Button>
-        <Line datasetIdKey="id" data={data} options={options} />
+        <Container>
+          <Row>
+            <Col className="col-8">
+              <Line datasetIdKey="id" data={data} options={options} />
+            </Col>
+            <Col>
+              <Button>Play</Button>
+              <Button>Pause</Button>
+              <Button onClick={this.backStep}>Step Back</Button>
+              <Button onClick={this.forwardStep}>Step Forward</Button>
+              <Button onClick={this.initializeChart}>Reset</Button>
+              <Form>
+                <FormGroup>
+                  <Label for="populationTextBox">Population</Label>
+                  <Input
+                    id="populationTextBox"
+                    placeholder="100"
+                    type="number"
+                  ></Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="infectedTextBox">Infected</Label>
+                  <Input
+                    id="infectedTextBox"
+                    placeholder="5"
+                    type="number"
+                  ></Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="betaSlider">Beta</Label>
+                  <Input id="betaSlider" placeholder="0.8" type="range"></Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="gammaSlider">Gamma</Label>
+                  <Input
+                    id="gammaSlider"
+                    placeholder="0.5"
+                    type="range"
+                  ></Input>
+                </FormGroup>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
