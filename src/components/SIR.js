@@ -66,9 +66,6 @@ class SIR extends React.Component {
       susceptiblePopulation: 0,
       recoveredPopulation: 0,
       day: 0,
-      beta: 0.8,
-      gamma: 0.5,
-      rnot: 0,
     });
 
     await this.setState({
@@ -323,7 +320,7 @@ class SIR extends React.Component {
                   ></Input>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="betaSlider">Beta</Label>
+                  <Label for="betaSlider">Beta ({this.state.beta})</Label>
                   <Input
                     id="betaSlider"
                     type="range"
@@ -338,7 +335,7 @@ class SIR extends React.Component {
                   ></Input>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="gammaSlider">Gamma</Label>
+                  <Label for="gammaSlider">Gamma ({this.state.gamma})</Label>
                   <Input
                     id="gammaSlider"
                     type="range"
