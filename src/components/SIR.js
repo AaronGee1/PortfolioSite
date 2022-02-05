@@ -118,6 +118,25 @@ class SIR extends React.Component {
     }
   };
 
+  backStep = () => {
+    let susceptibleArray = this.state.susceptibleData;
+    let infectedArray = this.state.infectedData;
+    let recoveredArray = this.state.recoveredData;
+    let dayArray = this.state.dayData;
+
+    susceptibleArray.pop();
+    infectedArray.pop();
+    recoveredArray.pop();
+    dayArray.pop();
+
+    this.setState({
+      susceptibleData: susceptibleArray,
+      infectedData: infectedArray,
+      recoveredData: recoveredArray,
+      dayData: dayArray,
+    });
+  };
+
   render() {
     console.log("===========");
     console.log(this.state.susceptiblePopulation);
@@ -167,7 +186,8 @@ class SIR extends React.Component {
     };
     return (
       <div>
-        <Button onClick={this.forwardStep}>Next Step</Button>
+        <Button onClick={this.backStep}>Step Back</Button>
+        <Button onClick={this.forwardStep}>Step Forward</Button>
         <Line datasetIdKey="id" data={data} options={options} />
       </div>
     );
