@@ -45,11 +45,13 @@ class SIR extends React.Component {
       infectedTextBox: null,
       betaSlider: 0.8,
       gammaSlider: 0.5,
+      simStarted: false,
     };
   }
 
   initializeChart = async () => {
     await this.setState({
+      simStarted: false,
       totalPopulation: this.state.populationTextBox,
       infectiousPopulation: this.state.infectedTextBox,
       susceptiblePopulation: 0,
@@ -135,6 +137,7 @@ class SIR extends React.Component {
 
     if (this.state.infectiousPopulation > 0.01) {
       await this.setState({
+        simStarted: true,
         susceptibleData: [
           ...this.state.susceptibleData,
           this.state.susceptiblePopulation,
@@ -253,6 +256,7 @@ class SIR extends React.Component {
                     id="populationTextBox"
                     placeholder="100"
                     type="number"
+                    disabled={this.state.simStarted ? true : false}
                     onChange={(e) =>
                       this.setPopulation(parseInt(e.target.value))
                     }
@@ -265,6 +269,7 @@ class SIR extends React.Component {
                     id="infectedTextBox"
                     placeholder="5"
                     type="number"
+                    disabled={this.state.simStarted ? true : false}
                     onChange={(e) => {
                       this.setInfected(parseInt(e.target.value));
                     }}
