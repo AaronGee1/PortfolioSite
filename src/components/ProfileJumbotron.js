@@ -1,6 +1,8 @@
 import React from "react";
 import { Media, Container, Row, Col } from "reactstrap";
 import profileImage from "../img/profile.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const ProfileJumbotron = (props) => {
   return (
@@ -21,6 +23,12 @@ const ProfileJumbotron = (props) => {
             enjoy learning new technologies and finding solutions to complex
             problems.
           </p>
+          <a href="https://www.linkedin.com/in/aaron-gee-5a46505a/">
+            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+          </a>
+          <a href="https://github.com/AaronGee1">
+            <FontAwesomeIcon icon={faGithub} size="2x" />
+          </a>
         </Col>
         <Col xs="2" />
       </Row>
