@@ -19,6 +19,7 @@ import {
   Input,
   Label,
   ButtonGroup,
+  FormFeedback,
 } from "reactstrap";
 import { Line } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -216,7 +217,7 @@ class SIR extends React.Component {
   render() {
     let options = {
       options: {
-        responsive: true,
+        responsive: false,
         scales: {
           yAxes: [
             {
@@ -305,6 +306,9 @@ class SIR extends React.Component {
                       this.setPopulation(parseInt(e.target.value))
                     }
                   ></Input>
+                  <FormFeedback>
+                    Please Enter a number greater than 0
+                  </FormFeedback>
                 </FormGroup>
                 <FormGroup>
                   <Label for="infectedTextBox">Infected</Label>
@@ -318,6 +322,10 @@ class SIR extends React.Component {
                       this.setInfected(parseInt(e.target.value));
                     }}
                   ></Input>
+                  <FormFeedback>
+                    Please enter a number greater than 0 and less than the
+                    population size
+                  </FormFeedback>
                 </FormGroup>
                 <FormGroup>
                   <Label for="betaSlider">Beta ({this.state.beta})</Label>
