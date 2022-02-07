@@ -55,6 +55,7 @@ class SIR extends React.Component {
       infectedTextBox: null,
       simStarted: false,
       isPaused: true,
+      outcome: "",
     };
   }
 
@@ -67,6 +68,7 @@ class SIR extends React.Component {
       susceptiblePopulation: 0,
       recoveredPopulation: 0,
       day: 0,
+      outcome: "",
     });
 
     await this.setState({
@@ -163,6 +165,15 @@ class SIR extends React.Component {
     } else {
       console.log("Infection Population is 0");
       this.state.isPaused = true;
+      this.setState({
+        outcome: `The infection ended after ${
+          this.state.day
+        } days. Out of the ${
+          this.state.totalPopulation
+        } total population ${Math.ceil(
+          this.state.recoveredPopulation
+        )} people were infected.`,
+      });
     }
   };
 
@@ -216,7 +227,7 @@ class SIR extends React.Component {
   render() {
     let options = {
       options: {
-        responsive: false,
+        responsive: true,
         scales: {
           yAxes: [
             {
@@ -358,6 +369,7 @@ class SIR extends React.Component {
                   ></Input>
                 </FormGroup>
               </Form>
+              <h5>{this.state.outcome}</h5>
             </Col>
           </Row>
         </Container>
