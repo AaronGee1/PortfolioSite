@@ -6,7 +6,6 @@ import {
   PointElement,
   LineElement,
   Title,
-  Tooltip,
   Legend,
 } from "chart.js";
 import {
@@ -29,6 +28,7 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
 } from "@fortawesome/free-solid-svg-icons";
+import TooltipIcon from "./TooltipIcon";
 class SIR extends React.Component {
   constructor() {
     super();
@@ -101,7 +101,6 @@ class SIR extends React.Component {
       PointElement,
       LineElement,
       Title,
-      Tooltip,
       Legend
     );
 
@@ -263,6 +262,7 @@ class SIR extends React.Component {
               <Line datasetIdKey="id" data={data} options={options} />
             </Col>
             <Col>
+              <TooltipIcon />
               <Row>
                 <ButtonGroup>
                   <Button
