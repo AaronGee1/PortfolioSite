@@ -5,16 +5,15 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import NavMenu from "./components/NavMenu.js";
-import Home from "./pages/Home.js";
-import SIRpage from "./pages/SIRpage";
-import Education from "./components/Education";
+import Home from "./HomePage/Home.js";
+import SIRpage from "./SIRPage/SIRpage";
 
 ReactDOM.render(
   <BrowserRouter>
     <NavMenu />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/education" element={<SIRpage />} />
+      <Route path="/SIR" element={<SIRpage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

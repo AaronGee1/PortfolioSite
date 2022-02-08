@@ -11,7 +11,7 @@ const NavMenu = () => {
         </NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink tag={RRNavLink} to="/education">
+            <NavLink tag={RRNavLink} to="/SIR">
               Projects
             </NavLink>
           </NavItem>
