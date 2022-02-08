@@ -38,7 +38,7 @@ const Education = () => {
             components and elements
           </ListGroupItemText>
           <ListGroupItemText>
-            Activities: Ryereson Aero Design, CASI Free Flight
+            Activities: Ryerson Aero Design, CASI Free Flight
           </ListGroupItemText>
         </ListGroupItem>
       </ListGroup>
