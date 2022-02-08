@@ -18,10 +18,14 @@ const Experience = () => {
           <ListGroupItemText>
             <ul>
               <li>Front-End development with React</li>
-              <li>Back-End development with Node.js and python</li>
+              <li>Back-End development with Node.js and Python</li>
               <li>Firmware and driver development in C/C++</li>
-              <li>Bash scripting</li>
-              <li>Linux development Environment</li>
+              <li>Developed according to microservice architecture</li>
+              <li>
+                Bash scripting and working in a Linux development Environment
+              </li>
+              <li>Non-relational databases using MongoDB</li>
+              <li>Experience working in an Agile Team Environment</li>
             </ul>
           </ListGroupItemText>
         </ListGroupItem>
@@ -31,8 +35,10 @@ const Experience = () => {
           <ListGroupItemText>TagsForHope</ListGroupItemText>
           <ListGroupItemText>
             <ul>
-              <li>Machine Vision/Object Character Recognition using python</li>
-              <li>Microcontroller programming in C/C++</li>
+              <li>Machine Vision/Object Character Recognition using Python</li>
+              <li>Microcontroller programming in C/C++ (ATmega & ESP32)</li>
+              <li>PLC programming</li>
+              <li>Source control with Git</li>
             </ul>
           </ListGroupItemText>
         </ListGroupItem>
@@ -42,9 +48,10 @@ const Experience = () => {
           <ListGroupItemText>Lawson Research Institute</ListGroupItemText>
           <ListGroupItemText>
             <ul>
-              <li>scripting and data analysis with python</li>
-              <li>Back-End development with Node.js and python</li>
-              <li>Firmware and driver development in C/C++</li>
+              <li>Scripting and data analysis with Python</li>
+              <li>Developed Python scripts to automate workflow in ABAQUS</li>
+              <li>Control system design</li>
+              <li>Develop test system using LabView</li>
             </ul>
           </ListGroupItemText>
         </ListGroupItem>
@@ -52,6 +59,18 @@ const Experience = () => {
         <ListGroupItem>
           <ListGroupItemHeading>Sustainable Development</ListGroupItemHeading>
           <ListGroupItemText>Pratt & Whitney Canada</ListGroupItemText>
+          <ul>
+            <li>
+              Created data analysis tools to benchmark hundreds of components
+              according to key performance indicators
+            </li>
+            <li>
+              Gathered and analyzed data from manufacturing databases,
+              blueprints, technical drawings, schematics, and computer-generated
+              reports into one cohesive database.
+            </li>
+            <li>VBA scripting</li>
+          </ul>
         </ListGroupItem>
 
         <ListGroupItem>
@@ -59,6 +78,16 @@ const Experience = () => {
           <ListGroupItemText>
             Ontario Ministry of Economic Development
           </ListGroupItemText>
+          <ul>
+            <li>
+              Conducted market research on Ontario's Aerospace industry and
+              identified opportunities for market growth and regulatory concerns
+            </li>
+            <li>
+              Produced detailed briefing materials for senior advisors and
+              managers
+            </li>
+          </ul>
         </ListGroupItem>
 
         <ListGroupItem>
@@ -66,6 +95,10 @@ const Experience = () => {
             Quality Engineering Intern
           </ListGroupItemHeading>
           <ListGroupItemText>3M Canada</ListGroupItemText>
+          <ul>
+            <li>Perform statistical analysis on quality test data</li>
+            <li>Developed testing procedures for new product testing</li>
+          </ul>
         </ListGroupItem>
       </ListGroup>
     </Container>
