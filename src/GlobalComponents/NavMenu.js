@@ -12,7 +12,12 @@ const NavMenu = () => {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag={RRNavLink} to="/SIR">
-              Projects
+              SIR Project
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={RRNavLink} to="/OCR">
+              OCR Project
             </NavLink>
           </NavItem>
           <NavItem>
