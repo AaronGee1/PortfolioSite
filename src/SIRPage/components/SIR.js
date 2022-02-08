@@ -178,28 +178,30 @@ class SIR extends React.Component {
   };
 
   backStep = () => {
-    let susceptibleArray = this.state.susceptibleData;
-    let infectedArray = this.state.infectedData;
-    let recoveredArray = this.state.recoveredData;
-    let dayArray = this.state.dayData;
-    let betaHistory = this.state.betaHistory;
-    let gammaHistory = this.state.gammaHistory;
+    if (this.state.day != 0) {
+      let susceptibleArray = this.state.susceptibleData;
+      let infectedArray = this.state.infectedData;
+      let recoveredArray = this.state.recoveredData;
+      let dayArray = this.state.dayData;
+      let betaHistory = this.state.betaHistory;
+      let gammaHistory = this.state.gammaHistory;
 
-    susceptibleArray.pop();
-    infectedArray.pop();
-    recoveredArray.pop();
-    dayArray.pop();
-    betaHistory.pop();
-    gammaHistory.pop();
+      susceptibleArray.pop();
+      infectedArray.pop();
+      recoveredArray.pop();
+      dayArray.pop();
+      betaHistory.pop();
+      gammaHistory.pop();
 
-    this.setState({
-      susceptibleData: susceptibleArray,
-      infectedData: infectedArray,
-      recoveredData: recoveredArray,
-      dayData: dayArray,
-      beta: betaHistory.at(-1),
-      gamma: gammaHistory.at(-1),
-    });
+      this.setState({
+        susceptibleData: susceptibleArray,
+        infectedData: infectedArray,
+        recoveredData: recoveredArray,
+        dayData: dayArray,
+        beta: betaHistory.at(-1),
+        gamma: gammaHistory.at(-1),
+      });
+    }
   };
 
   setPopulation = async (population) => {
