@@ -14,6 +14,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/SIR" element={<SIRpage />} />
+      <Route path="/OCR" element={<OCRpage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

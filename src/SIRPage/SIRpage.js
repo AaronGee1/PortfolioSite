@@ -1,6 +1,6 @@
 import React from "react";
 import SIR from "./components/SIR";
-import ProjectJumbotron from "../components/ProjectJumbotron";
+import ProjectJumbotron from "../GlobalComponents/ProjectJumbotron";
 
 const SIRpage = () => {
   return (

@@ -178,7 +178,7 @@ class SIR extends React.Component {
   };
 
   backStep = () => {
-    if (this.state.day != 0) {
+    if (this.state.day !== 0) {
       let susceptibleArray = this.state.susceptibleData;
       let infectedArray = this.state.infectedData;
       let recoveredArray = this.state.recoveredData;

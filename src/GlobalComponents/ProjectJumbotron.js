@@ -1,5 +1,5 @@
 import React from "react";
-import { Media, Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 const ProjectJumbotron = (props) => {
   return (
