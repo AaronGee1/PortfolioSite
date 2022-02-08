@@ -16,7 +16,12 @@ const TooltipIcon = () => {
           setTooltipOpen(!tooltipOpen);
         }}
       >
-        Adjust the beta and gamma sliders to adjust the SIR model.
+        A SIR model is used to predict the number of people who are susceptible
+        to infection, are actively infected and have recovered. Two variables
+        affect the model. Beta is the effective contact rate which affects the
+        rate of transistion from the susceptible population to the infected
+        population. Gamma is the rate of recovery, which affects the rate of
+        transistion from infected to recovered.
       </Tooltip>
     </div>
   );
