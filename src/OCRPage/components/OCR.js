@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import Tesseract from "tesseract.js";
-import { Container, Input } from "reactstrap";
+import {
+  Container,
+  Input,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from "reactstrap";
 
 const OCR = () => {
   const image = new Image();
@@ -26,7 +33,62 @@ const OCR = () => {
             image.src = URL.createObjectURL(e.target.files[0]);
           }}
         ></Input>
-        <canvas ref={canvasRef} />
+        <Card>
+          <CardBody>
+            <CardHeader>Starting Image</CardHeader>
+            <canvas ref={canvasRef} />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Modified Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Gray Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Blurred Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Sharpen Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Dilated Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Contoured Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <CardHeader>Parsed Image</CardHeader>
+            <canvas />
+            <CardFooter />
+          </CardBody>
+        </Card>
       </Container>
     </div>
   );
