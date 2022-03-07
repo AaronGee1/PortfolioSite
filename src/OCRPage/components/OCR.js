@@ -10,13 +10,9 @@ const OCR = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     image.onload = () => {
-      context.drawImage(
-        image,
-        0,
-        0,
-        context.canvas.width,
-        context.canvas.height
-      );
+      canvas.width = image.width;
+      canvas.height = image.height;
+      context.drawImage(image, 0, 0, image.width, image.height);
     };
   }, []);
 
@@ -30,8 +26,8 @@ const OCR = () => {
             image.src = URL.createObjectURL(e.target.files[0]);
           }}
         ></Input>
+        <canvas ref={canvasRef} />
       </Container>
-      <canvas ref={canvasRef} />
     </div>
   );
 };
