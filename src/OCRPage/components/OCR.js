@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Tesseract from "tesseract.js";
 import {
   Container,
@@ -12,6 +12,7 @@ import {
 const OCR = () => {
   const image = new Image();
   const canvasRef = useRef(null);
+  const [orignalImage, setOriginalImage] = useState(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,14 +24,25 @@ const OCR = () => {
     };
   });
 
+  const toBase64 = async (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      console.log(reader.result);
+      setOriginalImage(reader.result);
+    };
+  };
+
   return (
     <div>
       <Container>
+        {orignalImage}
         <Input
           type="file"
           id="imageInput"
           onChange={(e) => {
             image.src = URL.createObjectURL(e.target.files[0]);
+            toBase64(e.target.files[0]);
           }}
         ></Input>
         <Card>
