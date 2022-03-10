@@ -21,7 +21,7 @@ const OCR = () => {
       canvas.height = image.height;
       context.drawImage(image, 0, 0, image.width, image.height);
     };
-  }, []);
+  });
 
   return (
     <div>
