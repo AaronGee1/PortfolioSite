@@ -9,6 +9,8 @@ import {
   CardFooter,
 } from "reactstrap";
 
+// const exec = require("child_process");
+
 const OCR = () => {
   const image = new Image();
   const canvasRef = useRef(null);
@@ -30,8 +32,18 @@ const OCR = () => {
     reader.onload = () => {
       console.log(reader.result);
       setOriginalImage(reader.result);
+      // getSkewAngle(orignalImage);
     };
   };
+
+  // const getSkewAngle = (image) => {
+  //   let command =
+  //     "echo " +
+  //     orignalImage +
+  //     "> python /home/aaron/Desktop/portfolio/scripts/getSkewAngle.py";
+
+  //   exec(command);
+  // };
 
   return (
     <div>
