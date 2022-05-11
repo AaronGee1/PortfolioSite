@@ -15,14 +15,14 @@ const NavMenu = () => {
               SIR Project
             </NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink tag={RRNavLink} to="/OCR">
               OCR Project
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink>Download Resume</NavLink>
-          </NavItem>
+          </NavItem> */}
         </Nav>
       </Navbar>
     </div>

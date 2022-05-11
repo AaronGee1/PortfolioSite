@@ -9,11 +9,13 @@ import {
 
 const Education = () => {
   return (
-    <Container className="text-justify">
+    <Container className="text-justify mb-5">
       <h1>Education</h1>
       <ListGroup>
         <ListGroupItem>
-          <ListGroupItemHeading>Fanshawe College</ListGroupItemHeading>
+          <ListGroupItemHeading>
+            Fanshawe College 2021 - 2023
+          </ListGroupItemHeading>
           <ListGroupItemText>
             Computer Programming and Analysis
           </ListGroupItemText>

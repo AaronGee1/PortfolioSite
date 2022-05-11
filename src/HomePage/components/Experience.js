@@ -9,7 +9,7 @@ import {
 
 const Experience = () => {
   return (
-    <Container className="text-justify">
+    <Container className="text-justify mb-4">
       <h1>Experience</h1>
       <ListGroup>
         <ListGroupItem>

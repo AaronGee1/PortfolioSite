@@ -19,9 +19,9 @@ const ProfileJumbotron = (props) => {
           <h1 className="display-3">Hi, i'm Aaron Gee</h1>
           <hr className="my-2" />
           <p className="lead">
-            A tickering, maker, engineer and an aspiring software developer. I
-            enjoy learning new technologies and finding solutions to complex
-            problems.
+            An aspiring software developer that enjoys building and tinkering
+            with new tech. I love learning new technologies and finding
+            solutions to complex problems.
           </p>
           <a href="https://www.linkedin.com/in/aaron-gee-5a46505a/">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
