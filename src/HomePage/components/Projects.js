@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink as RRNavLink } from "react-router-dom";
 import {
   CardGroup,
   Card,
@@ -10,11 +9,7 @@ import {
   Container,
   Row,
 } from "reactstrap";
-
-import SIRImage from "../../img/SIR.png";
-import aaveImage from "../../img/aave.png";
-import ecobeeImage from "../../img/ecobee.png";
-
+import { Link } from "react-router-dom";
 const Projects = () => {
   return (
     <div>
@@ -22,14 +17,14 @@ const Projects = () => {
         <h1>Projects</h1>
         <CardGroup>
           <Card>
-            <CardImg src={SIRImage} className="w-100 h-75" />
+            <CardImg src="/img/SIR.png" className="w-100 h-75" />
             <CardBody>
               <CardTitle>SIR Model Visualization</CardTitle>
               <CardText>
                 A simple web app demonstrating a common infectious disease model
               </CardText>
               <Row>
-                <a href="/SIR">Demo Link</a>
+                <Link to="/SIR">Demo Link</Link>
               </Row>
               <a href="https://github.com/AaronGee1/PortfolioSite">
                 Source Code
@@ -39,7 +34,7 @@ const Projects = () => {
           <Card>
             <CardImg />
             <CardBody>
-              <CardImg src={ecobeeImage} className="w-100 h-75" />
+              <CardImg src="/img/ecobee.png" className="w-100 h-75" />
               <CardTitle>
                 Central Humidifier controller using Ecobee API
               </CardTitle>
@@ -56,7 +51,7 @@ const Projects = () => {
           <Card>
             <CardImg />
             <CardBody>
-              <CardImg src={aaveImage} className="w-100 h-75" />
+              <CardImg src="/img/aave.png" className="w-100 h-75" />
               <CardTitle>AAVE Transaction Scanner</CardTitle>
               <CardText>
                 A node.js application that periodically queries AAVE graphQl api

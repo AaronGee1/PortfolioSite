@@ -1,6 +1,5 @@
 import React from "react";
 import { Media, Container, Row, Col } from "reactstrap";
-import profileImage from "../../img/profile.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -12,7 +11,7 @@ const ProfileJumbotron = (props) => {
         <Col xs="8">
           <Media
             object
-            src={profileImage}
+            src="/img/profile.jpeg"
             alt="Profile Picture"
             className="rounded-circle"
           />
